@@ -14,29 +14,43 @@
 //   @override
 //   Widget build(BuildContext context){
 //     return Scaffold( 
-//       body: Center(
-//         child:Column(
+//       body: SafeArea(
+//         child: Stack(
 //           children: [
-//             SizedBox(height: 100,),
-//             Image.asset(  
-//               'assets/images/eniadlogocroped.png',
+//             Center(
+//               child:Column(
+//                 mainAxisAlignment: MainAxisAlignment.center,
+//                 children: [
+//                   Image.asset(  
+//                     'assets/images/eniadlogocroped.png', width: 200,
+//                   ),
+//                   SizedBox(height: 30,),
+//                   Padding(padding:EdgeInsets.symmetric(horizontal: 40), child: Text("ENIAD BERKANE", style: TextStyle(color: Colors.white, fontSize: 26, fontWeight: FontWeight.bold, letterSpacing:5),)),
+//                   SizedBox(height: 20,),
+//                   Text("Ecole Nationale Intelligence Artificielle et du Digital", style: TextStyle(color:Colors.white, fontSize:15, ), textAlign: TextAlign.center,),
+//                   SizedBox(height: 100,),
+//                   Positioned(bottom:7, left:0, right:0, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2,)),
+
+//                 ],
+//               )
 //             ),
-//             SizedBox(height:100,),
-//             Text("ENIAD BERKANE", style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold, letterSpacing:5),),
-//             SizedBox(height:40),
-//             Text("Ecole Nationale Intelligence Artificielle et du Digital", style: TextStyle(color:Colors.white, fontSize:25, ), textAlign: TextAlign.center,),
-//             SizedBox(height:100),
-//             CircularProgressIndicator(color:Colors.white,)
-//           ],
-//         )
+//             /*Positioned(bottom:16, left:0, right:0, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2,)),
+//             Positioned(bottom:7, left:0, right:0, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2,)),
+//             Positioned(bottom:0, left:0, right:0, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2,))
+//               fun three bared animation
+//             */
+
+//           ]
+//         ),
 //       ),
-//       backgroundColor: Color.fromARGB(255, 105, 27, 5),
+//       backgroundColor: const Color(0xFFA0523D),
 //     );
 //   }
 // }
 
 
 import 'package:flutter/material.dart';
+import "./loginpage.dart";
 
 class LaunchingWidget extends StatefulWidget {
   const LaunchingWidget({super.key});
@@ -51,9 +65,8 @@ class _LaunchingWidgetState extends State<LaunchingWidget> {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
       if (!mounted) return;
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const LoginPage()));
       // Remplace par ta page de connexion quand elle existera
-      // Navigator.pushReplacement(context,
-      //   MaterialPageRoute(builder: (_) => const LoginPage()));
     });
   }
 
